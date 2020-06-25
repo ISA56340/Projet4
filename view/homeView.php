@@ -28,7 +28,7 @@ use JF\Blog\model\ChapterManager;
 			</div>
 			<div id="nav">
 				<ul>
-					<li><a href="../view/homeView.php">Accueil</a></li>
+					<li><a href="../public/index.php">Accueil</a></li>
 					<li><a href="../view/loginView.php">Admin</a></li>
 				</ul>
 			</div>
