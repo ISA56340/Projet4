@@ -19,6 +19,7 @@ class ChapterManager extends DataBase
         $connection = $db->getConnection();
 		$result = $connection ->prepare('SELECT id, title, content, creation_date FROM chapter WHERE id = ?');
         $result->execute([$chapterId]);
+        
         return $result;
 	}
 
@@ -38,11 +39,24 @@ class ChapterManager extends DataBase
     {
        	$db = new DataBase();
         $connection = $db->getConnection();
-        $result = $connection->prepare('DELETE FROM chapter WHERE id= :id');
-        $result->execute(array(
-                    'id' => $_GET['delete']
-                    ));
+        $result = $connection->prepare('DELETE FROM chapter WHERE id= ?');
+        $result->execute(array('id' => $_GET['id']));
         
         return $result;  
+    }
+
+    public function updateChapter($title, $content, $chapterId)
+    {	
+       	$db = new DataBase();
+        $connection = $db->getConnection();
+        $result = $connection->prepare('UPDATE chapter SET title=$title, content=$content WHERE id= $chapterId');
+        $modifChapter = $result->execute(array(
+                    'title' => $title,
+                    'content' => $newChapter,
+                    'id' => $chapterId
+                    ));
+        									                   							
+        
+        return $modifChapter;
     }
 }

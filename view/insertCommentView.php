@@ -1,10 +1,8 @@
 <?php
- session_start();
-if(!isset($_SESSION)){
-
-    header('Location:loginView.php');
-      exit(); //arrêt prématuré au cas où
+if(!isset($_SESSION)){ //pour vérifier qu'une session n'est pas déjà présente
+    session_start();
 }
+
 ?>
 
 <!DOCTYPE html>

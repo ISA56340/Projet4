@@ -1,10 +1,10 @@
 <?php
-//namespace JF\Blog\controller
+//namespace JF\Blog\controller;
 require_once('../model/DataBase.php');
 require_once('../model/LoginManager.php');
 //use JF\Blog\model\LoginManager;
 
-class BackController
+class LoginController
 {
 	
 	function signin()
@@ -38,7 +38,7 @@ class BackController
     	if($verif)
     	{
     		$_SESSION['pseudo'] = $pseudo;
-    		header('Location: ../view/createChapterView.php');
+    		header('Location: ../public/index.php');
     	}
     	else
    		{
@@ -54,5 +54,6 @@ class BackController
    	 	header('Location: ../view/loginView.php');
 	}
 
+	
 }		
 

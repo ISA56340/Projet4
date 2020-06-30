@@ -28,13 +28,13 @@ require '../model/LoginManager.php';//on ajoute le fichier
       <h2> de Jean Forteroche</h2>
     </header>
 
-    <a href="../public/index.php?action=chapter&amp;chapterId;?>"class="bouton">Chapitres</a>
-    <form method="post" action=" ../public/index.php?action=addChapter"?>        
-      <input type="text" id="title" name="title" placeholder="Titre"/>  
-  		<textarea id="newChapter" name="newChapter">
-    
-  		</textarea>
-      <input type="submit" value="Publier"/>
+    <form action="../public/index.php?action=updateid=chapterId=<?= $chapter['id'] ?>" method="post">
+           
+        <input type="text" id="title" name="title" value="<?= htmlspecialchars($chapter['title']) ?>"/>
+        <input type="text" id="content" name="content" value="<?= htmlspecialchars($chapter['content']) ?>"/>
+  		<textarea id="newChapter" name="newChapter"  value=<?= nl2br($chapter['content']) ?>></textarea>
+      		
+      <input type="submit" value="Modifier"/>
     </form>
   		
   		<script>

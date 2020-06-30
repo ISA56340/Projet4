@@ -1,11 +1,9 @@
 <?php
-session_start();
-/* session_start();
-if(!isset($_SESSION)){
+if(!isset($_SESSION)){ //pour vérifier qu'une session n'est pas déjà présente
+    session_start();
 
-    header('Location:loginView.php');
-      exit(); //arrêt prématuré au cas où
-}*/
+}
+//$pseudo = $_SESSION['pseudo'];
 //require '../model/DataBase.php';//on inclut le fichier pour la connexion à la BDD
 require_once '../model/ChapterManager.php';//on ajoute le fichier Post.php
 require_once '../model/CommentManager.php';
@@ -38,6 +36,8 @@ use JF\Blog\model\CommentManager;
 			<h1> Billet simple pour l'Alaska</h1>
 			<h2> de Jean Forteroche</h2>
 		</header>
+			
+
 			<?php
     		$chapter = new \JF\Blog\model\ChapterManager();
     		$listChapters = $chapter->getChapter($_GET['chapterId']);
@@ -47,17 +47,18 @@ use JF\Blog\model\CommentManager;
         			<p>Publié le : <?= htmlspecialchars($chapter['creation_date']);?></p>
             		<h2><?= htmlspecialchars($chapter['title']);?></h2>
             		<p><?= htmlspecialchars($chapter['content']);?></p>
-            		 <a href="../public/index.php">Retour à l'accueil</a>
-            	<?php 
-            		if (isset($_SESSION['admin']))
+            		<a href="../public/index.php">Retour à l'accueil</a> 
+            		 <?php 
+            		if (isset($_SESSION['pseudo']))
             	{
            		?>
-              		<a href ="../public/index.php?action=chapter&delete=<?= $chapter['id'] ?>">Supprimer</a>
-              		<a href ="../public/index.php?action=chapter&id=<?= $chapter['id'] ?>">Modifier</a>
+   
+              		<a href ="../public/index.php?action=chapter&delete=<?= $chapter['id'] ?>">Supprimer</a> |
+              		<a href ="../public/index.php?action=chapter&update=<?= $chapter['id'] ?>">Modifier</a>
+          
      			 <?php
            		}
-      			?>
-            		
+      			?>         		
         		</div>
         		<br>
          		<?php

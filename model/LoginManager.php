@@ -18,8 +18,7 @@ class LoginManager extends DataBase
         $req = $connection->prepare('SELECT * FROM user WHERE pseudo = :pseudo');
         $req-> execute(['pseudo' => $pseudo]);
         return $req;
-        //$result = $req -> fetch();
-        var_dump($req);
+        //var_dump($req);
     } 
       
    

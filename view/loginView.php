@@ -1,8 +1,6 @@
-<?
-session_start();
-$_SESSION["admin"];
-require_once '../model/LoginManager.php';//on inclut le fichier pour la connexion à la BDD
-
+<?php
+ 	session_start();
+	require_once '../model/LoginManager.php';//on inclut le fichier pour la connexion à la BDD
 ?>
 
 <!DOCTYPE html>
