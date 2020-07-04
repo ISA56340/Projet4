@@ -31,22 +31,22 @@ class Router
                 }
                 elseif($_GET['action'] === 'chapter'){
                     $chapterController = new ChapterController();
-                    $chapterController->chapter(isset($_GET['chapterId'])?$_GET['chapterId']: null);
+                    $chapterController->chapter(isset($_GET['chapterId']) && $_GET['chapterId']);
                 }
-                elseif(isset($_GET['delete']) && $_GET['delete'] > 0){
+                elseif($_GET['action'] == 'delete')
+                        if(isset($_GET['delete']) && $_GET['delete'] > 0){
                         $chapterController = new ChapterController();
                         $chapterController->deleteChapter($_GET['id']);
                         
                         listChapters();
                 }
-                elseif (isset($_GET['update'])){
+                elseif($_GET['action'] == 'update'){
                         $chapterController = new ChapterController();
                         $chapterController->updateChapterView($_GET['chapterId']);
                         
                         if(isset($_GET['action'])&& ($_GET['action'] == 'update')){
                             $chapterController = new ChapterController();
-                            $chapterController->updateCheck();
-                            
+                            $chapterController->updateCheck();                            
                         }
                 }
                  elseif($_GET['action'] === 'addChapter'){

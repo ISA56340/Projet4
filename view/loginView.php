@@ -29,7 +29,7 @@
 		</header>
 
 		<div id = "formulaire">
-			<form action="../public/index.php?action=login" method="POST">
+			<form action="../public/index.php?action=listChapters" method="POST">
 				<h3>Connexion</h3>
   				<label for="login">Identifiant</label><br/><br/>
   					<input type="text" id="pseudo" name="pseudo" placeholder="Identifiant" required/><br/><br/>

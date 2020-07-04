@@ -48,17 +48,7 @@ use JF\Blog\model\CommentManager;
             		<h2><?= htmlspecialchars($chapter['title']);?></h2>
             		<p><?= htmlspecialchars($chapter['content']);?></p>
             		<a href="../public/index.php">Retour à l'accueil</a> 
-            		 <?php 
-            		if (isset($_SESSION['pseudo']))
-            	{
-           		?>
-   
-              		<a href ="../public/index.php?action=chapter&delete=<?= $chapter['id'] ?>">Supprimer</a> |
-              		<a href ="../public/index.php?action=chapter&update=<?= $chapter['id'] ?>">Modifier</a>
-          
-     			 <?php
-           		}
-      			?>         		
+            		
         		</div>
         		<br>
          		<?php

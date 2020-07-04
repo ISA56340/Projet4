@@ -22,17 +22,18 @@ require '../model/LoginManager.php';//on ajoute le fichier
         <ul>
           <li><a href="../public/index.php">Accueil</a></li>
           <li><a href="../view/loginView.php">Admin</a></li>
+          <li><a href="../public/index.php">Déconnexion</a></li>
         </ul>
       </div>
       <h1> Billet simple pour l'Alaska</h1>
       <h2> de Jean Forteroche</h2>
     </header>
 
-    <form action="../public/index.php?action=updateid=chapterId=<?= $chapter['id'] ?>" method="post">
+    <form action="../public/index.php?action=listChapter?>" method="post">
            
         <input type="text" id="title" name="title" value="<?= htmlspecialchars($chapter['title']) ?>"/>
-        <input type="text" id="content" name="content" value="<?= htmlspecialchars($chapter['content']) ?>"/>
-  		<textarea id="newChapter" name="newChapter"  value=<?= nl2br($chapter['content']) ?>></textarea>
+      
+  		<textarea id="newChapter" name="newChapter"  value="<?= htmlspecialchars($chapter['content']) ?>"></textarea>
       		
       <input type="submit" value="Modifier"/>
     </form>

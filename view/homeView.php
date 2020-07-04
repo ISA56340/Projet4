@@ -57,6 +57,17 @@ use JF\Blog\model\ChapterManager;
             		<p><?= htmlspecialchars($chapter['content']);?></p>
             		<p>Publié le : <?= htmlspecialchars($chapter['creation_date']);?></p>
             		<a href="../public/index.php?action=chapter&amp;chapterId=<?=  htmlspecialchars($chapter['id']);?>"class="bouton">Lire la suite...</a> <!---on a rediriger vers le bon url via le routeur pour voir le chapitre en entier--->
+            		 <?php 
+            		if (isset($_SESSION['pseudo']))
+            	{
+           		?>
+   
+              		<a href ="../public/index.php?action=delete&amp;chapterId=<?=  htmlspecialchars($chapter['id']);?>">Supprimer</a> |
+              		<a href ="../public/index.php?action=update&amp;chapterId=<?=  htmlspecialchars($chapter['id']);?>">Modifier</a>
+          
+     			 <?php
+           		}
+      			?>         		
         		</div>
         		<br>
 

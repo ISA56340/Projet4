@@ -2,6 +2,7 @@
 //namespace JF\Blog\controller;
 require_once('../model/DataBase.php');
 require_once('../model/ChapterManager.php');
+require_once('../model/CommentManager.php');
 require_once('../config/Router.php');
 
 use JF\Blog\model\ChapterManager;
@@ -22,8 +23,8 @@ class ChapterController
 		$chapterManager = new \JF\Blog\model\ChapterManager();
 		$commentManager = new \JF\Blog\model\CommentManager();
 
-		$chapter = $chapterManager->getChapter($_GET['chapterId']);	
-		$comments = $commentManager->getComments($_GET['chapterId']);
+		$chapter = $chapterManager->getChapter(var_dump($_GET['chapterId']));	
+		$comments = $commentManager->getComments(var_dump($_GET['chapterId']));
 
 		require_once('../view/chapterView.php');
 	}
@@ -66,9 +67,9 @@ class ChapterController
 	function updateChapterView($chapterId)
 	{
 		$chapterManager = new \JF\Blog\model\ChapterManager();
-    	$chapter = $chapterManager->getChapter($_GET['chapterId']);	
-		$comments = $commentManager->getComments($_GET['chapterId']);
-
-		require_once('../view/adminChapterView.php');
+    	$updateChapterView = $chapterManager->getChapter(var_dump($_GET['chapterId']));	
+		//$comments = $commentManager->getComments(var_dump($_GET['chapterId']));
+    	header('Location: ../view/adminChapterView.php');
+		//require_once('../view/adminChapterView.php');
 	}
 }

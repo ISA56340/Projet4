@@ -59,4 +59,15 @@ class ChapterManager extends DataBase
         
         return $modifChapter;
     }
+
+    public function updateChapterView($chapterId)
+	{
+		$db = new DataBase();
+        $connection = $db->getConnection();
+		$result = $connection ->prepare('SELECT id, title, content, creation_date FROM chapter WHERE id = ?');
+        $result->execute([$chapterId]);
+        
+        return $result;
+	
+	}	
 }

@@ -9,7 +9,7 @@ require '../model/LoginManager.php';//on ajoute le fichier
 <!DOCTYPE html>
 <html>
 	<head>
-    <a href="../public/index.php">Déconnexion</a></p>
+    
   		<script src="https://cdn.tiny.cloud/1/vbl7evtg0dhgyajokozlbin5xayz3083upqby70jenjsq1oa/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 	</head>
 	
@@ -22,6 +22,7 @@ require '../model/LoginManager.php';//on ajoute le fichier
         <ul>
           <li><a href="../public/index.php">Accueil</a></li>
           <li><a href="../view/loginView.php">Admin</a></li>
+          <li><a href="../public/index.php">Déconnexion</a></li>
         </ul>
       </div>
       <h1> Billet simple pour l'Alaska</h1>
