@@ -1,0 +1,201 @@
+body
+{
+	background-image: url("../images/fond.png");
+	margin:0px;
+	background-size: cover;
+}
+
+header
+{
+	background-image: url("../images/img_alaska.jpg");
+	width:100%;
+	height:500px;
+	background-repeat: no-repeat;
+	background-position:center;
+	margin-bottom: 50px;
+	position:relative;
+}
+
+.logo
+{
+	position:absolute;
+	z-index: 1;
+	margin-left: 10%;
+	margin-top: -35px;
+	position:fixed;
+}
+
+#nav
+{
+	position:relative;
+	font-size:1.1em;
+	width:100%;
+	height:80px;
+	background-color: white;
+	margin-top:-40px;
+	position: fixed;
+}
+
+#nav a:hover
+{
+	color:blue;
+}
+li
+{
+	list-style-type: none;
+}
+
+ul
+{
+	display:flex;
+	flex-direction: row;
+	margin-left:70%;
+	margin-top:30px;
+}
+
+ul a
+{
+	color:black;
+	padding:20px;
+	text-decoration: none;
+}
+
+
+h1
+{
+	color: white;
+	font-size: 60px;
+	text-align: center;
+	padding-top:200px;
+	text-shadow: 4px 3px 3px black; 
+}
+
+header h2
+{
+	color:white;
+	text-align: center;
+	font-size: 30px;
+	text-shadow: 3px 3px 3px black;
+	font-style: italic;
+
+}
+
+header h3
+{
+	text-align: center;
+	margin-top:100px;
+	font-size: 30px;
+	padding:20px;
+	color:#1f5cff;
+}
+
+.login
+{
+	text-align:center;
+	margin-top:30px;
+	background-color: lightgrey;
+	border:2px solid grey;
+	border-radius: 20px;
+	width:90%;
+	margin-left:5%;
+}
+
+label
+{
+	width:10%;
+	display:inline-block;
+	font-weight:bold;
+}
+
+input
+{
+	width:30%;
+	height:30px;
+}
+
+/*.envoi
+{
+	width:30%;
+	text-align: center;
+	display:inline-block;
+	margin-bottom: 20px;
+}*/
+#post
+{
+	margin-top:50px;
+	margin-left: 50%;
+}
+
+#post h3
+{
+	color:#243bff;
+	font-size:25px;
+	margin-left:25%;
+	text-shadow: 3px 3px 3px white;
+}
+
+.billets
+{
+	border:2px solid #1f5cff;
+	width:60%;
+	background-color: white;
+	height:250px;
+	padding:10px;
+	margin-left:20%;
+}
+
+.billets p
+{
+	text-align: center;
+	padding:10px;
+}
+
+.billets h2
+{
+	text-align: center;
+	font-style: italic;
+}
+
+.bouton
+{
+	border:2px solid black;
+	background-color: #1f5cff;
+	margin-left:40%;
+	padding:10px;
+	color:white;
+}
+
+.retour
+{
+	border:2px solid black;
+	background-color: #1f5cff;
+	margin-left:40%;
+	padding:10px;
+	color:white;
+}
+
+.commentaire
+{
+	border:2px solid green;
+	background-color: green;
+	color:white;
+	cursor:pointer;
+}
+
+footer
+{
+	display:flex;
+	flex-direction: row;
+	background-color: white;
+	margin-top:20px;
+}
+
+footer p
+{
+	padding-left:20px;
+}
+
+#logo_reseaux_sociaux
+{
+	cursor:pointer;
+}
