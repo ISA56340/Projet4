@@ -19,7 +19,7 @@ class ChapterController
 		require_once('view/homeView.php');
 	}
 
-	
+/*afficher un chapitre et commentaires associés*/	
 	function chapter($chapterId)
 	{
 		$chapterManager = new ChapterManager();
@@ -31,16 +31,49 @@ class ChapterController
 		require_once('view/chapterView.php');
 	}
 
+/*affiche la vue qui permet de créer nouveau chapitre*/
+	function newChapter()
+	{
+		$chapterManager = new ChapterManager();
+		require_once('view/newChapterView.php');
+		
+	}
+
 	function addChapter()
 	{
 		$chapterManager = new ChapterManager();
 		$chapter = $chapterManager->addChapter();
 		header('Location: index.php?action=listChapters');
+		
 	}
 
-	function deleteChapter()
+	function deleteChapter($chapterId)
 	{
 		$chapterManager = new ChapterManager();
-		$chapter = $chapterManager->addChapter();
+		$chapter = $chapterManager->deleteChapter($chapterId);
+		header('Location: index.php?action=listChapters');
+	}
+
+/*récupère et affiche dans la vue un chapitre pour pouvoir le modifier*/
+	function updateChapterView($chapterId)
+	{
+		$chapterManager = new ChapterManager();
+    	$chapter = $chapterManager->getChapter($chapterId);	
+		//var_dump($_GET['chapterId']);
+    	require_once('view/adminChapterView.php');
+		
+	}
+
+/*modifier chapitre*/
+	function updateChapter($title,$content)
+	{
+    	$chapterManager = new ChapterManager();
+    	$updateChapter = $chapterManager->updateChapter($title,$content);
+    	if($updateChapter){
+			header('Location: index.php?action=listChapters');
+		}else{
+			throw new Exception("Impossible modifier le chapitre");
+			
+		}	
 	}
 }

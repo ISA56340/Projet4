@@ -1,9 +1,9 @@
 <?php
 //namespace JF\Blog\model;
 
-require_once("DataBase.php");
+require_once("Database.php");
 
-class CommentManager extends DataBase
+class CommentManager extends Database
 {
      
 
@@ -25,5 +25,14 @@ class CommentManager extends DataBase
         header('Location: index.php?action=chapter&id=' . $chapterId);
     }
 
+    public function reportcomment($commentId)//signaler un commentaire
+    {
+        $db = $this->getConnection();
+        $result = $db->prepare('UPDATE comment SET report= report+1 WHERE id=:id');
+        $result->execute(array(
+                        'id'=>$commentId
+                        ));
+        return $result;
+    }
 }
 

@@ -1,9 +1,9 @@
 <?php
 //namespace JF\Blog\model;
 
-require_once("DataBase.php");
+require_once("Database.php");
 
-class LoginManager extends DataBase
+class LoginManager extends Database
 {
     public function __construct() {
        

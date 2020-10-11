@@ -11,8 +11,8 @@
                     <p><?= htmlspecialchars($chapter['content']);?></p>
                     <p>Publié le : <?= htmlspecialchars($chapter['creation_date']);?></p>
                     <a href="index.php?action=chapter&amp;chapterId=<?= $chapter['id'] ?>"class="bouton">Lire la suite...</a> <!---on a rediriger vers le bon url via le routeur pour voir le chapitre en entier--->
-                    <a href ="index.php?action=delete&amp;chapterId=<?= $chapter['id'] ?>">Supprimer</a> |
-                    <a href ="index.php?action=update&amp;chapterId=<?= $chapter['id'] ?>">Modifier</a>          
+                    <a href ="index.php?action=newChapter">Nouveau chapitre</a> 
+                    <a href ="index.php?action=update&amp;chapterId=<?= $chapter['id'] ?>">Modifier | Supprimer</a>          
                             
                 </div>
                 <br>

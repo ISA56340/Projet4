@@ -10,7 +10,8 @@ require_once('model/CommentManager.php');
 
 class CommentController
 {
-	
+
+/*affiche vue pour pouvoir ajouter un com*/
 	function addComment($chapterId)
 	{
 		$commentManager = new CommentManager();
@@ -18,7 +19,7 @@ class CommentController
 		require_once('view/insertCommentView.php');
 	}
 	
-
+/*ajout com*/
 	function insertComment($chapterId,$author,$comment)
 	{
 		$commentManager = new CommentManager();
@@ -33,6 +34,14 @@ class CommentController
 		}
 	}
 
+/*signaler com*/
+	function reportComment($commentId)
+	{
+		$commentManager = new CommentManager();
+		$reportComment = $commentManager->reportComment($commentId);
+    header('Location:index.php?action=listChapters');
+    echo "<script>alert(\"Commentaire signalé !\")</script>";
+	}
 }
 		
 	

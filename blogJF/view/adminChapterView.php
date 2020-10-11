@@ -3,32 +3,19 @@
 <?php ob_start(); ?>
      <a href="index.php?">Déconnexion</a></p>
 
-    <form action="index.php?action=updateCheck" method="post">
+    <form action="index.php?action=updateChapter&chapterId=<?= $chapter['id'] ?>" method="post">
            
-        <input type="text" id="title" name="title" value="<?= htmlspecialchars($chapter['title']) ?>"/>
+        <label>Titre :<input type="text" id="title" name="title" value="<?= htmlspecialchars($chapter['title']) ?>"/></label>
       
-  		<textarea id="newChapter" name="newChapter"  value="<?= htmlspecialchars($chapter['content']) ?>"></textarea>
+  		<textarea id="newChapter" name="newChapter"> <?= htmlspecialchars($chapter['content']) ?> </textarea>
       		
-      <input type="submit" value="Modifier"/>
-      <input type="submit" value="Supprimer"/>
+       <a href ="index.php?action=delete&amp;chapterId=<?= $chapter['id'] ?>">Supprimer</a> |
+       <input type="submit" value="Modifier"/> 
     </form>
   		
-  		<script>
-    	tinymce.init({
-        language: 'fr_FR',
-        forced_root_block : "", 
-        force_br_newlines : true,
-        force_p_newlines : false,
-     	 	selector: 'textarea',
-     	 	height: 600,
-     		plugins: 'a11ychecker advcode casechange formatpainter linkchecker autolink lists checklist media mediaembed pageembed permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-      		toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
-      		toolbar_mode: 'floating',
-      		tinycomments_mode: 'embedded',
-      		tinycomments_author: 'Author name',
-    	});
-  		</script>
-  
+  		
+<script src="public/js/textEditor.js"></script> 
+
 <?php $content = ob_get_clean(); ?>
 
 

@@ -52,7 +52,7 @@ class LoginController
 	}
 
 	function admin(){
-		require_once("./view/loginView.php");
+		require_once("view/loginView.php");
 	}
 	
  }

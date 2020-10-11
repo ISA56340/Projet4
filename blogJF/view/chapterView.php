@@ -19,8 +19,10 @@
             <h4><?= htmlspecialchars($comment['author']);?></h4>
             <p><?= htmlspecialchars($comment['comment']);?></p>
             <p>Posté le <?= htmlspecialchars($comment['comment_date']);?></p>
+            <a href="index.php?action=reportComment&id=<?=$chapter['id']?>&reportId=<?=$comment['id']?>" class="Signaler">Signaler un commentaire</a>
         <?php
         }
+        $comments->closeCursor();
         ?>    
 		</div>
 		

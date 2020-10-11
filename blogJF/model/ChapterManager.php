@@ -1,19 +1,19 @@
 <?php
 //namespace JF\Blog\model;
-require_once("DataBase.php");
+require_once("Database.php");
 
-class ChapterManager extends DataBase
+class ChapterManager extends Database
 {
      
 	
-	public function getChapters()//récupère la liste des billets
+	public function getChapters()//récupère la liste des chapitres
 	{
 		$db = $this->getConnection();
         $result = $db->query('SELECT id, title, content, creation_date FROM chapter ORDER BY id DESC LIMIT 0,4');
         return $result;
 	}
 
-	public function getChapter($chapterId)//récupère un billet précis grace au paramètre
+	public function getChapter($chapterId)//récupère un chapitre précis grace au paramètre
 	{
 		$db = $this->getConnection();
 		$result = $db ->prepare('SELECT id, title, content, creation_date FROM chapter WHERE id = ?');
@@ -22,24 +22,43 @@ class ChapterManager extends DataBase
         return $chapter;
 	}
 
-	public function addChapter()
+	public function addChapter()//ajouter un nouveau chapitre
 	{
 		$title = $_POST['title'];
 		$content = $_POST['newChapter'];
-		$db = $this->getConnection();
-        $result = $connection ->prepare('INSERT INTO chapter(title, content,creation_date) VALUES (?,?,NOW())');
-        $result->execute([$title,
-    					  $content]);
+		
+        $db = $this->getConnection();
+        $result = $db ->prepare('INSERT INTO chapter(title, content,creation_date) VALUES (:title,:content ,NOW())');
+        $result->execute(['title' => $title,
+    					  'content' => $content]);
         return $result;
 	}
 
-	public function deleteChapter()
+	public function deleteChapter($chapterId)//supprimer un chapitre
     {
        	$db = $this->getConnection();
         $result = $db->prepare('DELETE FROM chapter WHERE id= ?');
-        $result->execute(array('id' => $_GET['id']));
+        $result->execute(array( $chapterId));
         
-        return $result;  
+        return $result; 
+
     }
+
+
+	  public function updateChapter($title,$content)//modifier un chapitre
+    {	
+        
+       	$db = $this->getConnection();
+        $result = $db->prepare('UPDATE chapter SET title=:title, content=:content WHERE id=:id');
+        
+        $result->execute(array(
+                    'title' => $title,
+                    'content' => $content,
+                    'id' => $_GET['id']
+                    ));
+        									                   							
+        
+       return $result;
+    }	
 
 }

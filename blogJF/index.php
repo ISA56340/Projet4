@@ -30,7 +30,7 @@ require_once ('controller/LoginController.php');
                 }
                 elseif($_GET['action'] === 'reportComment'){
                     $commentController = new CommentController();
-                    $commentController->reportComment($_GET['commentId']);
+                    $commentController->reportComment($_GET['reportId']);
                 }
                 elseif($_GET['action'] === 'signin'){
                     $loginController = new LoginController();
@@ -48,25 +48,27 @@ require_once ('controller/LoginController.php');
                     $loginController = new LoginController();
                     $loginController->logout();
                 }
+                elseif($_GET['action'] === 'newChapter'){
+                     $chapterController = new ChapterController();
+                    $chapterController->newChapter();
+                }
                  elseif($_GET['action'] === 'addChapter'){
                      $chapterController = new ChapterController();
                     $chapterController->addChapter();
                 }
                  elseif($_GET['action'] == 'delete') {
-                    if(isset($_GET['delete']) && $_GET['delete'] > 0){
+                    if(isset($_GET['chapterId']) && $_GET['chapterId'] > 0){
                         $chapterController = new ChapterController();
-                        $chapterController->deleteChapter($_GET['id']);
-                        
-                        listChapters();
+                        $chapterController->deleteChapter($_GET['chapterId']);
                     }
                 }
                 elseif($_GET['action'] == 'update'){
                     $chapterController = new ChapterController();
                     $chapterController->updateChapterView($_GET['chapterId']);    
                 }
-                elseif($_GET['action'] == 'updateCheck'){
+                elseif($_GET['action'] == 'updateChapter'){
                     $chapterController = new ChapterController();
-                    $chapterController->updateCheck();
+                    $chapterController->updateChapter($_POST['newChapter'],$_POST['title']);
                 }
                 else{
                     echo 'page inconnue';
